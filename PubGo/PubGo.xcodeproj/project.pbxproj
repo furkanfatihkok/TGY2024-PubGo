@@ -19,6 +19,8 @@
 		027745422BDB0A75002D44FB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027745412BDB0A75002D44FB /* Date.swift */; };
 		027745442BDB0A87002D44FB /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027745432BDB0A87002D44FB /* Time.swift */; };
 		02BE72512BD9B55200174283 /* SeatPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE72502BD9B55200174283 /* SeatPlanViewController.swift */; };
+		02C99D5A2BDC4BED00569FF3 /* SeatStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C99D592BDC4BED00569FF3 /* SeatStatus.swift */; };
+		02EE2DB02BDC755900C50C8C /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE2DAF2BDC755900C50C8C /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		027745412BDB0A75002D44FB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		027745432BDB0A87002D44FB /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		02BE72502BD9B55200174283 /* SeatPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatPlanViewController.swift; sourceTree = "<group>"; };
+		02C99D592BDC4BED00569FF3 /* SeatStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatStatus.swift; sourceTree = "<group>"; };
+		02EE2DAF2BDC755900C50C8C /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			children = (
 				024A13BB2BD977B2007577A8 /* Supporting Files */,
 				024A13BA2BD977AD007577A8 /* Storyboards */,
+				02EE2DAE2BDC754100C50C8C /* Utilities */,
 				0277453C2BDB0A36002D44FB /* Models */,
 				024A13BC2BD977C4007577A8 /* Views */,
 				024A13AF2BD97772007577A8 /* Assets.xcassets */,
@@ -121,8 +126,17 @@
 				0277453F2BDB0A5D002D44FB /* Passenger.swift */,
 				027745412BDB0A75002D44FB /* Date.swift */,
 				027745432BDB0A87002D44FB /* Time.swift */,
+				02C99D592BDC4BED00569FF3 /* SeatStatus.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		02EE2DAE2BDC754100C50C8C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				02EE2DAF2BDC755900C50C8C /* AlertManager.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				024A13AB2BD97772007577A8 /* ViewController.swift in Sources */,
+				02EE2DB02BDC755900C50C8C /* AlertManager.swift in Sources */,
 				027745402BDB0A5D002D44FB /* Passenger.swift in Sources */,
 				0277453E2BDB0A47002D44FB /* Ticket.swift in Sources */,
 				027745422BDB0A75002D44FB /* Date.swift in Sources */,
@@ -204,6 +219,7 @@
 				02BE72512BD9B55200174283 /* SeatPlanViewController.swift in Sources */,
 				027745442BDB0A87002D44FB /* Time.swift in Sources */,
 				02656B292BD9BEDE008D3DE4 /* InfoTicketViewController.swift in Sources */,
+				02C99D5A2BDC4BED00569FF3 /* SeatStatus.swift in Sources */,
 				024A13A92BD97772007577A8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

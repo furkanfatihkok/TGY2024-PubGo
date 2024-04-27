@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ggd-tI-1F6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -7,6 +7,7 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -364,15 +365,43 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HFu-ex-9GO">
+                                        <rect key="frame" x="16" y="78" width="329" height="480"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m6b-nw-eHG">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seatCell" id="8vT-ew-mck">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="w9N-eU-8ki">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="ggd-tI-1F6" id="v5s-Dj-PUv"/>
+                                            <outlet property="delegate" destination="ggd-tI-1F6" id="rue-hq-n3e"/>
+                                        </connections>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="HFu-ex-9GO" secondAttribute="trailing" constant="16" id="7l1-Lu-8LK"/>
                                     <constraint firstItem="CUJ-o9-Dif" firstAttribute="leading" secondItem="iAp-v0-om3" secondAttribute="leading" constant="16" id="EA4-Tj-ffa"/>
                                     <constraint firstAttribute="bottom" secondItem="XUQ-EW-WKU" secondAttribute="bottom" constant="78" id="FWi-ap-3UN"/>
                                     <constraint firstAttribute="trailing" secondItem="XUQ-EW-WKU" secondAttribute="trailing" constant="32" id="U3S-AM-Wfr"/>
                                     <constraint firstItem="XUQ-EW-WKU" firstAttribute="leading" secondItem="iAp-v0-om3" secondAttribute="leading" constant="32" id="bgt-7I-nPj"/>
+                                    <constraint firstItem="HFu-ex-9GO" firstAttribute="leading" secondItem="iAp-v0-om3" secondAttribute="leading" constant="16" id="g64-Kd-4Kp"/>
+                                    <constraint firstItem="HFu-ex-9GO" firstAttribute="top" secondItem="CUJ-o9-Dif" secondAttribute="bottom" constant="16" id="gi3-hU-TYL"/>
                                     <constraint firstItem="CUJ-o9-Dif" firstAttribute="top" secondItem="iAp-v0-om3" secondAttribute="top" constant="32" id="uz0-6E-TFv"/>
                                     <constraint firstAttribute="trailing" secondItem="CUJ-o9-Dif" secondAttribute="trailing" constant="16" id="vbQ-1h-bb8"/>
+                                    <constraint firstItem="XUQ-EW-WKU" firstAttribute="top" secondItem="HFu-ex-9GO" secondAttribute="bottom" constant="16" id="xkq-s4-Rfz"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="16"/>
@@ -391,10 +420,14 @@
                             <constraint firstItem="nUw-OI-N6s" firstAttribute="leading" secondItem="hiM-lp-0kD" secondAttribute="leading" constant="4" id="Zjr-cd-xhP"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JEI-XR-2Do"/>
+                    <connections>
+                        <outlet property="collectionView" destination="HFu-ex-9GO" id="Uvo-qp-81w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3n-nz-VHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2891" y="-2"/>
+            <point key="canvasLocation" x="2890.8396946564885" y="-2.1126760563380285"/>
         </scene>
         <!--Info Ticket View Controller-->
         <scene sceneID="g4X-bw-3iL">
@@ -757,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eY7-5Y-8WV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3842" y="-2"/>
+            <point key="canvasLocation" x="3841.9847328244273" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
@@ -766,7 +799,7 @@
         <image name="bus" catalog="system" width="128" height="122"/>
         <image name="bus-wp" width="600" height="391"/>
         <image name="bus.doubledecker.fill" catalog="system" width="124" height="128"/>
-        <image name="bus.fill" catalog="system" width="32" height="32"/>
+        <image name="bus.fill" catalog="system" width="128" height="122"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="logo" width="98" height="96"/>
@@ -786,10 +819,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
