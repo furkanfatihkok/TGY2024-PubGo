@@ -338,13 +338,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pFw-cA-3aO" userLabel="vStack">
                                                 <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="40.666666666666664"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RP. 74.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnH-uS-xqf">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choosen Seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnH-uS-xqf">
                                                         <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Economy 1 - C5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH4-1K-Jy2">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Economy 1 - C5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH4-1K-Jy2" userLabel="seatLabel">
                                                         <rect key="frame" x="0.0" y="20.333333333333258" width="148.66666666666666" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -362,6 +362,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="12"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="bookNowButtonTapped:" destination="ggd-tI-1F6" eventType="touchUpInside" id="35I-i6-tbj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -423,6 +426,7 @@
                     <navigationItem key="navigationItem" id="JEI-XR-2Do"/>
                     <connections>
                         <outlet property="collectionView" destination="HFu-ex-9GO" id="Uvo-qp-81w"/>
+                        <outlet property="seatLabel" destination="XH4-1K-Jy2" id="fGO-ap-BpY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3n-nz-VHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

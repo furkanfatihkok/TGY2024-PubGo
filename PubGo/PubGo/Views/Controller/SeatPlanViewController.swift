@@ -10,7 +10,11 @@ import UIKit
 class SeatPlanViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var seatLabel: UILabel!
     
+    var selectedSeats: [IndexPath] = []
+    let maxSelectedSeats = 5
+    var passengerTicket: Ticket?
     
     let seatStatuses: [[SeatStatus]] = [
         [.available, .available, .filled, .filled, .available],
@@ -40,7 +44,23 @@ class SeatPlanViewController: UIViewController {
         layout.itemSize = CGSize(width: cellSize, height: cellSize)
         collectionView.collectionViewLayout = layout
         
-        
+    }
+    
+    private func updateLabel(with text: String, for indexPath: IndexPath) {
+        seatLabel.text = text
+    }
+    
+    @IBAction func bookNowButtonTapped(_ sender: UIButton) {
+        if let ticket = passengerTicket {
+            let alertController = UIAlertController(title: "Bilet Al", message: "Bilet almak istediğinizden emin misiniz?", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Evet", style: .default, handler: { _ in
+                
+            }))
+            alertController.addAction(UIAlertAction(title: "Hayır", style: .cancel, handler: nil))
+            present(alertController, animated: true, completion: nil)
+        } else {
+            print("En az bir koltuk seçin")
+        }
     }
 }
 
@@ -66,21 +86,32 @@ extension SeatPlanViewController: UICollectionViewDelegate,UICollectionViewDataS
         let selectedSeatStatus = seatStatuses[indexPath.section][indexPath.item]
         
         if selectedSeatStatus == .available {
-            AlertManager.showBookingAlert(on: self) { name, surname, tcNumber in
-                print("Ad: \(String(describing: name)), Soyad: \(String(describing: surname)), TC Kimlik Numarası: \(String(describing: tcNumber))")
-                
-                AlertManager.showConfirmationAlert(on: self) { confirmed in
-                    if confirmed {
-                        print("Bilet Alındı")
-                    } else {
-                        print("Bilet Alınamadı....")
+            if selectedSeats.contains(indexPath) {
+                if let selectedIndex = selectedSeats.firstIndex(of: indexPath) {
+                    selectedSeats.remove(at: selectedIndex)
+                }
+                collectionView.cellForItem(at: indexPath)?.backgroundColor = seatColors[.available]
+                updateLabel(with: "", for: indexPath)
+            } else {
+                if selectedSeats.count < maxSelectedSeats {
+                    AlertManager.showBookingAlert(on: self) { [weak self] name, surname, tcNumber in
+                        guard let self = self else { return }
+                        if let name = name, let surname = surname, let tcNumber = tcNumber {
+                            self.selectedSeats.append(indexPath)
+                            collectionView.cellForItem(at: indexPath)?.backgroundColor = self.seatColors[.chosen]
+                            self.updateLabel(with: "TC: \(tcNumber), \(name), \(surname)", for: indexPath)
+                        }
                     }
+                } else {
+                    print("Bu koltuk seçilidir.")
                 }
             }
-        } else if selectedSeatStatus == .chosen {
-            print("Koltuk şu an seçim aşamasında")
-        } else {
-            print("Koltuk dolu seçim yapamazsınız.")
+        }
+        
+        for seatIndexpath in selectedSeats {
+            if seatIndexpath != indexPath {
+                collectionView.cellForItem(at: seatIndexpath)?.backgroundColor = seatColors[.chosen]
+            }
         }
     }
 }
