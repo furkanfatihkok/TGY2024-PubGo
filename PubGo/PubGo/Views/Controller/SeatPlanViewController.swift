@@ -51,15 +51,14 @@ class SeatPlanViewController: UIViewController {
     }
     
     @IBAction func bookNowButtonTapped(_ sender: UIButton) {
-        if let ticket = passengerTicket {
-            let alertController = UIAlertController(title: "Bilet Al", message: "Bilet almak istediğinizden emin misiniz?", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Evet", style: .default, handler: { _ in
-                
-            }))
-            alertController.addAction(UIAlertAction(title: "Hayır", style: .cancel, handler: nil))
-            present(alertController, animated: true, completion: nil)
+        let selectedSeatCount = selectedSeats.count
+        
+        if selectedSeatCount > 0 && selectedSeatCount <= maxSelectedSeats {
+            self.performSegue(withIdentifier: "seatPlanToInfoTicket", sender: nil)
+        } else if selectedSeatCount == 0 {
+            AlertManager.showAlert(title: "Koltuk Seçim Uyarısı", message: "En az 1 tane koltuk seçin", viewController: self)
         } else {
-            print("En az bir koltuk seçin")
+            print("En fazla 5 koltuk seçebilirisniz")
         }
     }
 }
@@ -103,9 +102,11 @@ extension SeatPlanViewController: UICollectionViewDelegate,UICollectionViewDataS
                         }
                     }
                 } else {
-                    print("Bu koltuk seçilidir.")
+                    AlertManager.showAlert(title: "Koltuk Seçim Uyarısı", message: "En Fazla 5 tane koltuk seçebilirsiniz!!", viewController: self)
                 }
             }
+        } else {
+            AlertManager.showAlert(title: "Koltuk Seçim Uyarısı", message: "Gri renkteki koltuklara seçim yapamazsınız!", viewController: self)
         }
         
         for seatIndexpath in selectedSeats {

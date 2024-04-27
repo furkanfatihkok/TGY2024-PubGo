@@ -39,18 +39,14 @@ class AlertManager {
         viewController.present(alertController, animated: true)
     }
     
-    static func showConfirmationAlert(on viewController: UIViewController, completion: @escaping (Bool) -> Void) {
-        let confirmAlert = UIAlertController(title: "Bilet Al", message: "Bilet almak istediğinizden emin misiniz?", preferredStyle: .alert)
+    static func showAlert(title: String, message: String, viewController: UIViewController) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        confirmAlert.addAction(UIAlertAction(title: "Evet", style: .default, handler: { _ in
-            completion(true)
-        }))
+        let confirmationAction = UIAlertAction(title: "Tamam", style: .default)
+        alertController.addAction(confirmationAction)
         
-        confirmAlert.addAction(UIAlertAction(title: "Hayır", style: .destructive, handler: { _ in
-            completion(false)
-        }))
-        
-        viewController.present(confirmAlert, animated: true)
+        viewController.present(alertController, animated: true)
     }
+
 }
 
