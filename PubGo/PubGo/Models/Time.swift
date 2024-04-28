@@ -15,8 +15,4 @@ class Time {
         self.hour = hour
         self.minute = minute
     }
-    
-    func printTime() {
-        print("\(hour):\(minute)")
-    }
 }

@@ -13,13 +13,17 @@ class Ticket {
     var time: Time
     var seat: [Int]
     var seatCount: Int
+    var from: String
+    var to: String
     
-    init(passenger: Passenger, date: Date, time: Time) {
+    init(passenger: Passenger = Passenger(), date: Date = Date(), time: Time = Time()) {
         self.passenger = passenger
         self.date = date
         self.time = time
         self.seat = []
         self.seatCount = 0
+        self.from = ""
+        self.to = ""
     }
     
     func compare(otherTickets: Ticket) -> Bool {

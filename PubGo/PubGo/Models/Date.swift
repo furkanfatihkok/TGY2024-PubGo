@@ -17,8 +17,4 @@ class Date {
         self.month = month
         self.year = year
     }
-    
-    func printDate() {
-        print("\(day)/\(month)/\(year)")
-    }
 }

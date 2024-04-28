@@ -17,8 +17,4 @@ class Passenger {
         self.surname = surname
         self.id = id
     }
-    
-    func printPassenger() {
-        print("\(name) \(surname) \(id)")
-    }
 }

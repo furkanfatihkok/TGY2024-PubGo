@@ -11,5 +11,7 @@ enum SeatStatus {
     case available
     case filled
     case chosen
+    case empty
+    case none
 }
 
