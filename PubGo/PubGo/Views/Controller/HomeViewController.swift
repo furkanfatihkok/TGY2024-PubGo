@@ -42,7 +42,6 @@ class HomeViewController: UIViewController {
         }
         
         if let seatPlanVC = segue.destination as? SeatPlanViewController {
-            //            injection dependency 2 tane var
             seatPlanVC.passengerTicket = ticket
             seatPlanVC.selectedDate = datePicker.date
             seatPlanVC.selectedTime = datePicker.date
