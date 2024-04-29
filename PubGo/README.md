@@ -16,4 +16,5 @@
 
 ![mvc](https://github.com/furkanfatihkok/puanli-odevler/assets/113316242/3092eb76-45c4-4ba9-b40f-0a37b07406af)
 
-![F74B3EE3-16C2-4FCF-B1D2-382A516CF750_1_102_o](https://github.com/furkanfatihkok/puanli-odevler/assets/113316242/e8fcea80-e32a-4091-a3f4-5089afba7af1)
+<img src="https://github.com/furkanfatihkok/puanli-odevler/assets/113316242/3884bcf5-280c-4b78-8d7f-933dec227b2c" alt="GIF" width="300" height="600">
+
