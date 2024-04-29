@@ -29,9 +29,21 @@ class AlertManager {
         
         let confirmAction = UIAlertAction(title: "Bilet Al", style: .default) { _ in
             
-            let name = alertController.textFields?[0].text ?? ""
-            let surname = alertController.textFields?[1].text ?? ""
-            let tcNumber = alertController.textFields?[2].text ?? ""
+            guard let name = alertController.textFields?[0].text, !name.isEmpty else {
+                showAlert(title: "Uyarı", message: "Lütfen adınızı giriniz!", viewController: viewController)
+                return
+            }
+            
+            guard let surname = alertController.textFields?[1].text, !surname.isEmpty else {
+                showAlert(title: "Uyarı", message: "Lütfen soyadınızı giriniz!", viewController: viewController)
+                return
+            }
+            
+            guard let tcNumber = alertController.textFields?[2].text, !tcNumber.isEmpty else {
+                showAlert(title: "Uyarı", message: "Lütfen TC kimlik numaranızı giriniz!", viewController: viewController)
+                return
+            }
+            
             completion(name, surname, tcNumber)
         }
         alertController.addAction(confirmAction)
@@ -49,6 +61,5 @@ class AlertManager {
         
         viewController.present(alertController, animated: true)
     }
-
+    
 }
-

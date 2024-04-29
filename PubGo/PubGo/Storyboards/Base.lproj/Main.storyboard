@@ -115,7 +115,7 @@
                                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="from" id="pYb-Io-nw0"/>
+                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="from" modalPresentationStyle="fullScreen" id="pYb-Io-nw0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -165,7 +165,7 @@
                                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="to" id="db2-AW-tWf"/>
+                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="to" modalPresentationStyle="fullScreen" id="db2-AW-tWf"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -201,9 +201,6 @@
                                         <subviews>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="OZA-TL-Efh">
                                                 <rect key="frame" x="0.0" y="0.0" width="268" height="32"/>
-                                                <date key="minimumDate" timeIntervalSinceReferenceDate="735991200">
-                                                    <!--2024-04-28 10:00:00 +0000-->
-                                                </date>
                                             </datePicker>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -282,11 +279,11 @@
             <objects>
                 <viewController id="BZO-8i-Mjh" customClass="CitiesViewController" customModule="PubGo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4xZ-SO-wi3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5o6-zp-gj7">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="EvY-B0-oqk">
@@ -475,13 +472,13 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m6b-nw-eHG">
                                             <size key="itemSize" width="128" height="128"/>
-                                            <size key="headerReferenceSize" width="50" height="36"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seatCell" id="8vT-ew-mck">
-                                                <rect key="frame" x="0.0" y="36" width="128" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="w9N-eU-8ki">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -489,10 +486,6 @@
                                                 </collectionViewCellContentView>
                                             </collectionViewCell>
                                         </cells>
-                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="headerView" id="rJM-Yh-7gN" userLabel="headerView">
-                                            <rect key="frame" x="0.0" y="0.0" width="329" height="36"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionReusableView>
                                         <connections>
                                             <outlet property="dataSource" destination="ggd-tI-1F6" id="v5s-Dj-PUv"/>
                                             <outlet property="delegate" destination="ggd-tI-1F6" id="rue-hq-n3e"/>
@@ -519,13 +512,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCH-qv-MPc">
                                 <rect key="frame" x="32" y="50.333333333333336" width="41.333333333333343" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ice-Ql-liN">
                                 <rect key="frame" x="89.333333333333329" y="50.333333333333336" width="41.333333333333329" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -681,7 +674,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İstanbul" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaM-qC-x7z">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İstanbul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaM-qC-x7z">
                                                                 <rect key="frame" x="0.0" y="21" width="53" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -944,7 +937,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="db2-AW-tWf"/>
-        <segue reference="ncY-jk-6lP"/>
+        <segue reference="zHN-nH-5Pg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="airplane" catalog="system" width="128" height="115"/>
