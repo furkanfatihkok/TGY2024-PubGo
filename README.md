@@ -6,7 +6,7 @@
 - **Dependency Manager:** -
 - **Dependencies:** -
 - **Style Guide:**
-- **Made With <3**
+- **Made With ❤️**
 
 **Some Highlighted Things**
 - ✅ Storyboard Design
