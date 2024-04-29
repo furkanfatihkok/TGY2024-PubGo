@@ -13,9 +13,10 @@
 		024A13AE2BD97772007577A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024A13AC2BD97772007577A8 /* Main.storyboard */; };
 		024A13B02BD97772007577A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 024A13AF2BD97772007577A8 /* Assets.xcassets */; };
 		024A13B32BD97772007577A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024A13B12BD97772007577A8 /* LaunchScreen.storyboard */; };
-		024F126E2BDE00CE007ECE17 /* SeatSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F126D2BDE00CE007ECE17 /* SeatSelectionDelegate.swift */; };
+		024F126E2BDE00CE007ECE17 /* SelectedCityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F126D2BDE00CE007ECE17 /* SelectedCityDelegate.swift */; };
 		024F12702BDE8DCB007ECE17 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F126F2BDE8DCB007ECE17 /* CitiesViewController.swift */; };
 		024F12722BDE8E24007ECE17 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F12712BDE8E24007ECE17 /* City.swift */; };
+		024F12752BDEB8DA007ECE17 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F12742BDEB8DA007ECE17 /* Direction.swift */; };
 		02656B292BD9BEDE008D3DE4 /* InfoTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02656B282BD9BEDE008D3DE4 /* InfoTicketViewController.swift */; };
 		0277453E2BDB0A47002D44FB /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0277453D2BDB0A47002D44FB /* Ticket.swift */; };
 		027745402BDB0A5D002D44FB /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0277453F2BDB0A5D002D44FB /* Passenger.swift */; };
@@ -35,9 +36,10 @@
 		024A13AF2BD97772007577A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		024A13B22BD97772007577A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		024A13B42BD97772007577A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		024F126D2BDE00CE007ECE17 /* SeatSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatSelectionDelegate.swift; sourceTree = "<group>"; };
+		024F126D2BDE00CE007ECE17 /* SelectedCityDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCityDelegate.swift; sourceTree = "<group>"; };
 		024F126F2BDE8DCB007ECE17 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		024F12712BDE8E24007ECE17 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		024F12742BDEB8DA007ECE17 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		02656B282BD9BEDE008D3DE4 /* InfoTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTicketViewController.swift; sourceTree = "<group>"; };
 		0277453D2BDB0A47002D44FB /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		0277453F2BDB0A5D002D44FB /* Passenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				024F12712BDE8E24007ECE17 /* City.swift */,
+				02EE2DAF2BDC755900C50C8C /* AlertManager.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				027745412BDB0A75002D44FB /* Date.swift */,
 				027745432BDB0A87002D44FB /* Time.swift */,
 				02C99D592BDC4BED00569FF3 /* SeatStatus.swift */,
+				024F12742BDEB8DA007ECE17 /* Direction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,8 +154,7 @@
 		02EE2DAE2BDC754100C50C8C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				02EE2DAF2BDC755900C50C8C /* AlertManager.swift */,
-				024F126D2BDE00CE007ECE17 /* SeatSelectionDelegate.swift */,
+				024F126D2BDE00CE007ECE17 /* SelectedCityDelegate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				024F126E2BDE00CE007ECE17 /* SeatSelectionDelegate.swift in Sources */,
+				024F126E2BDE00CE007ECE17 /* SelectedCityDelegate.swift in Sources */,
 				024A13AB2BD97772007577A8 /* HomeViewController.swift in Sources */,
 				02EE2DB02BDC755900C50C8C /* AlertManager.swift in Sources */,
 				027745402BDB0A5D002D44FB /* Passenger.swift in Sources */,
@@ -235,6 +238,7 @@
 				027745422BDB0A75002D44FB /* Date.swift in Sources */,
 				024F12722BDE8E24007ECE17 /* City.swift in Sources */,
 				024A13A72BD97772007577A8 /* AppDelegate.swift in Sources */,
+				024F12752BDEB8DA007ECE17 /* Direction.swift in Sources */,
 				02BE72512BD9B55200174283 /* SeatPlanViewController.swift in Sources */,
 				027745442BDB0A87002D44FB /* Time.swift in Sources */,
 				02656B292BD9BEDE008D3DE4 /* InfoTicketViewController.swift in Sources */,

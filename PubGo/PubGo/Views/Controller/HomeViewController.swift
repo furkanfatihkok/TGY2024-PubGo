@@ -12,31 +12,46 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var fromButtonLabel: UIButton!
     @IBOutlet weak var toButton: UIButton!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var ticket: Ticket = Ticket()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        datePicker.addTarget(self, action: #selector(tapped), for: .valueChanged)
+    }
+    
+    @objc func tapped() {
+        dismiss(animated: true)
     }
     
     @IBAction func serachTicketButton(_ sender: UIButton) {
+        guard let fromCity = fromButtonLabel.title(for: .normal),
+              let toCity = toButton.title(for: .normal),
+              !fromCity.isEmpty, !toCity.isEmpty else {
+            AlertManager.showAlert(title: "Uyarı!", message: "Lütfen Şehir Seçin", viewController: self)
+            return
+        }
         performSegue(withIdentifier: "homeToSeatPlan", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cityVC = segue.destination  as? CitiesViewController {
+        if let cityVC = segue.destination as? CitiesViewController {
             cityVC.delegate = self
-            cityVC.direction = segue.identifier == "nereden" ? .from : .to
+            cityVC.direction = segue.identifier == "from" ? .from : .to
         }
+        
         if let seatPlanVC = segue.destination as? SeatPlanViewController {
-//            injection dependency 2 tane var
+            //            injection dependency 2 tane var
             seatPlanVC.passengerTicket = ticket
+            seatPlanVC.selectedDate = datePicker.date
+            seatPlanVC.selectedTime = datePicker.date
         }
+        
     }
     
 }
-extension HomeViewController: CitiesViewControllerDelegate {
+extension HomeViewController: SelectedCityDelegate {
     
     func selectedCity(_ city: String, direction: Direction) {
         if direction == .from {

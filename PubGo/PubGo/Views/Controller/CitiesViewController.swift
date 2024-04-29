@@ -7,26 +7,16 @@
 
 import UIKit
 
-enum Direction {
-    case from
-    case to
-}
-
-protocol CitiesViewControllerDelegate: AnyObject {
-    func selectedCity(_ city: String, direction: Direction)
-}
-
 class CitiesViewController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
     
-    weak var delegate: CitiesViewControllerDelegate?
+    weak var delegate: SelectedCityDelegate?
     
     var direction: Direction = .from
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     

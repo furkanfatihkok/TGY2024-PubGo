@@ -11,7 +11,15 @@ class SeatPlanViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var seatLabel: UILabel!
+    
+    
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var minuteLabel: UILabel!
+    
+    var selectedDate: Foundation.Date?
+    
+    var selectedTime: Foundation.Date?
     
     var selectedSeats: [IndexPath] = []
     
@@ -44,8 +52,22 @@ class SeatPlanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = (passengerTicket.from + "->" +  passengerTicket.to)
+        if let selectedDate = selectedDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            let dateString = dateFormatter.string(from: selectedDate)
+            timeLabel.text = dateString
+        }
         
+        if let selectedTime = selectedTime {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            let timeString = dateFormatter.string(from: selectedTime)
+            minuteLabel.text = timeString
+        }
+        
+        
+        titleLabel.text = (passengerTicket.from + " - " + passengerTicket.to)
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = interItemSpacing
@@ -53,6 +75,7 @@ class SeatPlanViewController: UIViewController {
         layout.itemSize = CGSize(width: cellSize, height: cellSize)
         layout.headerReferenceSize = CGSize(width: 40, height: 40)
         collectionView.collectionViewLayout = layout
+        
     }
     
     private func updateLabel(with text: String, for indexPath: IndexPath) {
@@ -60,17 +83,29 @@ class SeatPlanViewController: UIViewController {
     }
     
     @IBAction func bookNowButtonTapped(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "seatPlanToInfoTicket", sender: self)
-        
-        let alert = UIAlertController(title: "Uyarı", message: "Koltuk seçimi yapılamaz.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        if selectedSeats.isEmpty {
+            AlertManager.showAlert(title: "Koltuk Seçimi", message: "Lütfen en az bir koltuk seçiniz!", viewController: self)
+        } else {
+            AlertManager.showBookingAlert(on: self) { [weak self] name, surname, tcNumber in
+                guard let self = self else { return }
+                if let name = name, let surname = surname, let tcNumber = tcNumber {
+                    self.passengerTicket.passenger.name = name
+                    self.passengerTicket.passenger.surname = surname
+                    self.passengerTicket.passenger.id = Int(tcNumber) ?? self.passengerTicket.passenger.id
+                    
+                    self.performSegue(withIdentifier: "seatPlanToInfoTicket", sender: self.passengerTicket)
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "seatPlanToInfoTicket", let ticketVC = segue.destination as? InfoTicketViewController  {
-            // prepare for segue
+        if segue.identifier == "seatPlanToInfoTicket",
+           let infoTicketVC = segue.destination as? InfoTicketViewController  {
+            infoTicketVC.ticket = passengerTicket
+            infoTicketVC.selectedDate = selectedDate
+            infoTicketVC.selectedTime = selectedTime
+            infoTicketVC.seatLabelText = seatLabel.text
         }
     }
 }
@@ -109,15 +144,10 @@ extension SeatPlanViewController: UICollectionViewDelegate, UICollectionViewData
                 updateLabel(with: "", for: indexPath)
             } else {
                 if selectedSeats.count < maxSelectedSeats {
-                    AlertManager.showBookingAlert(on: self) { [weak self] name, surname, tcNumber in
-                        guard let self = self else { return }
-                        if let name = name, let surname = surname, let tcNumber = tcNumber {
                             self.selectedSeats.append(indexPath)
                             collectionView.cellForItem(at: indexPath)?.backgroundColor = self.seatColors[.chosen]
-                            self.updateLabel(with: "TC: \(tcNumber), \(name), \(surname)", for: indexPath)
-                        }
-                    }
-                } else {
+                            self.updateLabel(with: "\(indexPath)", for: indexPath)
+                    } else {
                     AlertManager.showAlert(title: "Koltuk Seçim Uyarısı", message: "En Fazla 5 tane koltuk seçebilirsiniz!!", viewController: self)
                 }
             }
@@ -136,35 +166,36 @@ extension SeatPlanViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        if kind == UICollectionView.elementKindSectionHeader {
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath)
-//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height))
-//            label.textAlignment = .center
-//            label.font = UIFont.boldSystemFont(ofSize: 16.0)
-//            switch indexPath.section {
-//            case 0:
-//                label.text = "A"
-//            case 1:
-//                label.text = "B"
-//            case 2:
-//                label.text = ""
-//            case 3:
-//                label.text = "C"
-//            case 4:
-//                label.text = "D"
-//            default:
-//                label.text = ""
-//            }
-//            headerView.addSubview(label)
-//            return headerView
-//        } else {
-//            fatalError("unkonwn")
-//        }
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: 50, height: 50)
-//    }
-//    
+    
+    //    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    //        if kind == UICollectionView.elementKindSectionHeader {
+    //            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath)
+    //            let label = UILabel(frame: CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height))
+    //            label.textAlignment = .center
+    //            label.font = UIFont.boldSystemFont(ofSize: 16.0)
+    //            switch indexPath.section {
+    //            case 0:
+    //                label.text = "A"
+    //            case 1:
+    //                label.text = "B"
+    //            case 2:
+    //                label.text = ""
+    //            case 3:
+    //                label.text = "C"
+    //            case 4:
+    //                label.text = "D"
+    //            default:
+    //                label.text = ""
+    //            }
+    //            headerView.addSubview(label)
+    //            return headerView
+    //        } else {
+    //            fatalError("unkonwn")
+    //        }
+    //    }
+    //
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    //        return CGSize(width: 50, height: 50)
+    //    }
+    //
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class AlertManager {
     
+    var ticket: Ticket = Ticket()
+    
     static func showBookingAlert(on viewController: UIViewController, completion: @escaping (String?, String?, String?) -> Void) {
         let alertController = UIAlertController(title: "Bilet Bilgileri", message: "Lütfen ad, soyad ve TC kimlik numaranızı girin", preferredStyle: .alert)
         

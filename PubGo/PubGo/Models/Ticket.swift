@@ -48,7 +48,7 @@ class Ticket {
     }
     
     func addSeatNumber(number: Int) {
-        if number >= 1 && number <= 45 {
+        if number >= 1 && number <= 32 {
             self.seat.append(number)
         }
     }
