@@ -115,7 +115,7 @@
                                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="from" id="pYb-Io-nw0"/>
+                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="from" modalPresentationStyle="fullScreen" id="pYb-Io-nw0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -165,7 +165,7 @@
                                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="to" id="db2-AW-tWf"/>
+                                                            <segue destination="BZO-8i-Mjh" kind="presentation" identifier="to" modalPresentationStyle="fullScreen" id="db2-AW-tWf"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -282,18 +282,18 @@
             <objects>
                 <viewController id="BZO-8i-Mjh" customClass="CitiesViewController" customModule="PubGo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4xZ-SO-wi3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5o6-zp-gj7">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="EvY-B0-oqk">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" rowHeight="45" id="EvY-B0-oqk">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EvY-B0-oqk" id="a4x-XQ-WBc">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -319,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Jp-H0-mQl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4789" y="-2"/>
+            <point key="canvasLocation" x="4788.5496183206105" y="-2.1126760563380285"/>
         </scene>
         <!--Seat Plan View Controller-->
         <scene sceneID="weT-al-DAC">
@@ -944,7 +944,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="db2-AW-tWf"/>
-        <segue reference="ncY-jk-6lP"/>
+        <segue reference="zHN-nH-5Pg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="airplane" catalog="system" width="128" height="115"/>
@@ -976,10 +976,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

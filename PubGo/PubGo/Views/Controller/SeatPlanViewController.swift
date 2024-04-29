@@ -165,37 +165,36 @@ extension SeatPlanViewController: UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath)
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height))
-            label.textAlignment = .center
-            label.font = UIFont.boldSystemFont(ofSize: 16.0)
-            switch indexPath.section {
-            case 0:
-                label.text = "A"
-            case 1:
-                label.text = "B"
-            case 2:
-                label.text = ""
-            case 3:
-                label.text = "C"
-            case 4:
-                label.text = "D"
-            default:
-                label.text = ""
-            }
-            headerView.addSubview(label)
-            return headerView
-        } else {
-            fatalError("unkonwn")
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 50, height: 50)
-    }
-    
+//    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        if kind == UICollectionView.elementKindSectionHeader {
+//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath)
+//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height))
+//            label.textAlignment = .center
+//            label.font = UIFont.boldSystemFont(ofSize: 16.0)
+//            switch indexPath.section {
+//            case 0:
+//                label.text = "A"
+//            case 1:
+//                label.text = "B"
+//            case 2:
+//                label.text = ""
+//            case 3:
+//                label.text = "C"
+//            case 4:
+//                label.text = "D"
+//            default:
+//                label.text = ""
+//            }
+//            headerView.addSubview(label)
+//            return headerView
+//        } else {
+//            fatalError("unkonwn")
+//        }
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        return CGSize(width: 50, height: 50)
+//    }
+//    
 }
